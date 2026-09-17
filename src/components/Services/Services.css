@@ -9,7 +9,7 @@
   border-radius: clamp(20px, 3.5vw, 36px);
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(217, 195, 160, 0.35);
-  padding: clamp(1.5rem, 3.5vw, 3.5rem);
+  padding: clamp(1rem, 3vw, 3.5rem);
 }
 
 .services__header {
@@ -19,8 +19,8 @@
 
 .services__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xs);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
 }
 
 /* ─── Service Card ──────────────────────────────────────────── */
@@ -31,7 +31,7 @@
   position: relative;
   background-color: rgba(250, 246, 239, 0.6);
   border-radius: var(--radius-lg);
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid rgba(217, 195, 160, 0.25);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -78,7 +78,8 @@
 .service-card__description {
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
-  line-height: 1.4;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
 }
 
 .service-card__link {
