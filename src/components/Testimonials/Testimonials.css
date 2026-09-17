@@ -1,0 +1,104 @@
+/* ─── Testimonials ───────────────────────────────────────────── */
+.testimonials {
+  padding: var(--section-padding);
+  background-color: var(--color-bg-secondary);
+}
+
+.testimonials__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonials__grid {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: var(--space-sm);
+}
+
+.testimonials__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  flex: 0 0 min(85vw, 360px);
+  scroll-snap-align: start;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--color-gold);
+  font-size: 0.875rem;
+}
+
+.testimonial-card__text {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-brown-dark);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.testimonial-card__author {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.testimonials__nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.testimonials__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-champagne);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  padding: 0;
+}
+
+.testimonials__dot--active {
+  background-color: var(--color-gold);
+}
+
+/* ─── Desktop ───────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .testimonials__grid {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .testimonial-card {
+    flex: 0 1 340px;
+  }
+
+  .testimonials__nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card {
+    flex: 0 1 360px;
+  }
+}

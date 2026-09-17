@@ -1,0 +1,100 @@
+/* ─── Mobile Menu ────────────────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(85vw, 360px);
+  background-color: var(--color-bg-primary);
+  z-index: var(--z-overlay);
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  padding: calc(80px + var(--space-lg)) var(--space-lg) var(--space-lg);
+  overflow-y: auto;
+}
+
+.mobile-menu--open {
+  transform: translateX(0);
+}
+
+.mobile-menu__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(48, 37, 31, 0.3);
+  z-index: calc(var(--z-overlay) - 1);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition-base),
+    visibility var(--transition-base);
+}
+
+.mobile-menu__backdrop--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu__nav {
+  flex: 1;
+}
+
+.mobile-menu__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu__nav-link {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-brown-dark);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu__nav-link:hover,
+.mobile-menu__nav-link:focus-visible {
+  color: var(--color-gold);
+}
+
+.mobile-menu__footer {
+  margin-top: auto;
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mobile-menu__cta {
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-menu__social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.mobile-menu__social-link {
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu__social-link:hover {
+  color: var(--color-gold);
+}
+
+/* ─── Desktop: hide mobile menu ─────────────────────────────── */
+@media (min-width: 1024px) {
+  .mobile-menu,
+  .mobile-menu__backdrop {
+    display: none;
+  }
+}

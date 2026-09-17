@@ -1,0 +1,117 @@
+/* ─── Location ───────────────────────────────────────────────── */
+.location {
+  padding: var(--section-padding);
+  background-color: var(--color-bg-primary);
+}
+
+.location__card {
+  background-color: #FAF7F2;
+  border-radius: clamp(20px, 3.5vw, 36px);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(217, 195, 160, 0.35);
+  padding: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.location__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.location__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.location__address {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.location__address-street {
+  display: block;
+  font-weight: 500;
+  color: var(--color-brown-dark);
+}
+
+.location__address-city {
+  display: block;
+}
+
+.location__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.location__map-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 16/10;
+  background-color: var(--color-bg-secondary);
+}
+
+.location__map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.location__map-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(48, 37, 31, 0.08);
+  transition: background-color var(--transition-fast);
+}
+
+.location__map-overlay:hover {
+  background-color: rgba(48, 37, 31, 0.15);
+}
+
+.location__map-label {
+  background-color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-brown-dark);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── Tablet ────────────────────────────────────────────────── */
+@media (min-width: 480px) {
+  .location__actions {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+/* ─── Desktop ───────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .location__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .location__content {
+    flex: 1;
+  }
+
+  .location__map-wrapper {
+    flex: 1.2;
+    max-width: 600px;
+    aspect-ratio: 4/3;
+  }
+}

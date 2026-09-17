@@ -1,0 +1,68 @@
+/* ─── Trust Strip ────────────────────────────────────────────── */
+.trust-strip {
+  padding: var(--space-lg) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.trust-strip__card {
+  background-color: #FAF6EF;
+  border-radius: clamp(16px, 2.5vw, 24px);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(217, 195, 160, 0.3);
+  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 2rem);
+}
+
+.trust-strip__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.trust-strip__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+}
+
+.trust-strip__icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-strip__icon-line {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.trust-strip__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-brown-dark);
+}
+
+.trust-strip__description {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── Tablet ────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .trust-strip__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .trust-strip__item {
+    padding: var(--space-md);
+  }
+}
