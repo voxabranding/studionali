@@ -18,9 +18,9 @@
 }
 
 .services__grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
 }
 
 /* ─── Service Card ──────────────────────────────────────────── */
@@ -105,11 +105,9 @@
   transform: translateX(4px);
 }
 
-/* ─── Tablet: 2 columns ─────────────────────────────────────── */
+/* ─── Tablet & Desktop ────────────────────────────────────────── */
 @media (min-width: 768px) {
   .services__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--space-xl);
   }
 

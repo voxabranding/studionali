@@ -22,9 +22,9 @@ export default function Results() {
           <div className="results__sidebar" data-reveal>
             <span className="section-eyebrow">Resultados</span>
             <h2 className="section-title" id="results-title">
-              Galeria: Transformações reais
+              Galeria de transformações.
             </h2>
-            <p className="section-text" style={{marginBottom: '1rem'}}>
+            <p className="section-text">
               Acompanhe de perto as mudanças que realizamos.
             </p>
             <a 
