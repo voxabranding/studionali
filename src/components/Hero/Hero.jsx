@@ -1,5 +1,6 @@
 import { siteConfig } from '../../config/siteConfig';
 import { openBooking } from '../../utils/booking';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './Hero.css';
 
 export default function Hero() {
@@ -31,8 +32,7 @@ export default function Hero() {
               </div>
 
               <h1 className="hero__title">
-                Beleza que<br />
-                começa na <em>raiz.</em>
+                {hero.title || 'Experiência, cuidado e elegância'}
               </h1>
 
               <p className="hero__subtitle">{hero.subtitle}</p>
@@ -72,14 +72,10 @@ export default function Hero() {
 
                 {/* Moldura Curva da Imagem */}
                 <div className="hero__image-frame">
-                  <img
-                    src={hero.desktopImage || siteConfig.images.hero}
-                    alt={hero.imageAlt || 'Cliente com cabelos bem cuidados em ambiente acolhedor'}
-                    className="hero__image"
-                    width={480}
-                    height={640}
-                    loading="eager"
-                    fetchPriority="high"
+                  <ImagePlaceholder 
+                    className="hero__image" 
+                    text="Imagem principal da Hero" 
+                    style={{ height: '640px' }} 
                   />
                 </div>
 

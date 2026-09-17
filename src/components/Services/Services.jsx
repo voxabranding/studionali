@@ -1,6 +1,7 @@
 import { siteConfig } from '../../config/siteConfig';
 import { openBooking } from '../../utils/booking';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './Services.css';
 
 export default function Services() {
@@ -27,15 +28,10 @@ export default function Services() {
                 data-reveal-delay={Math.min(index + 1, 4)}
               >
                 <div className="service-card__image-wrapper">
-                  {/* ⚠️ PLACEHOLDER — Substituir por foto real antes de publicar */}
-                  <img
-                    src={service.image}
-                    alt={`Serviço de ${service.title} na Raiz Beleza & Estética`}
-                    className="service-card__image"
-                    width={400}
-                    height={300}
-                    style={{ aspectRatio: '4/3' }}
-                    loading="lazy"
+                  <ImagePlaceholder 
+                    text={service.title} 
+                    className="service-card__image" 
+                    style={{ aspectRatio: '4/3' }} 
                   />
                 </div>
 

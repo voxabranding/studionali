@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import { siteConfig } from '../../config/siteConfig';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './BeforeAfter.css';
 
 export default function BeforeAfter() {
@@ -18,9 +19,10 @@ export default function BeforeAfter() {
     setSliderPos(percentage);
   }, []);
 
-  if (!config || !config.enabled) {
-    return null;
-  }
+  // Removendo a checagem de config.enabled para sempre exibir a demo
+  // if (!config || !config.enabled) {
+  //   return null;
+  // }
 
   const handlePointerDown = (e) => {
     setIsDragging(true);
@@ -86,31 +88,20 @@ export default function BeforeAfter() {
                 aria-valuetext={`${Math.round(sliderPos)}% da imagem depois visível`}
                 onKeyDown={handleKeyDown}
               >
-                {/* Imagem "Antes" (camada de fundo) */}
-                <img
-                  src={config.beforeImage}
-                  alt={config.beforeAlt || 'Antes'}
-                  className="before-after__img before-after__img--before"
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                />
-                <span className="before-after__label before-after__label--before">Antes</span>
+                <div className="before-after__img before-after__img--before">
+                  <ImagePlaceholder text="Antes" bgColor="#D9C3A0" style={{ height: '100%' }} />
+                </div>
+                <span className="before-after__label before-after__label--before">ANTES</span>
 
                 {/* Imagem "Depois" (camada superior recortada) */}
                 <div
                   className="before-after__after-wrapper"
                   style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
                 >
-                  <img
-                    src={config.afterImage}
-                    alt={config.afterAlt || 'Depois'}
-                    className="before-after__img before-after__img--after"
-                    width={800}
-                    height={600}
-                    loading="lazy"
-                  />
-                  <span className="before-after__label before-after__label--after">Depois</span>
+                  <div className="before-after__img before-after__img--after">
+                    <ImagePlaceholder text="Depois" bgColor="#FAF7F1" style={{ height: '100%' }} />
+                  </div>
+                  <span className="before-after__label before-after__label--after">DEPOIS</span>
                 </div>
 
                 {/* Linha divisória e manípulo (handle) */}
@@ -131,8 +122,7 @@ export default function BeforeAfter() {
                       strokeLinejoin="round"
                       aria-hidden="true"
                     >
-                      <polyline points="15 18 9 12 15 6" />
-                      <polyline points="9 18 15 12 9 6" />
+                      <path d="M7 16l-4-4 4-4m10 8l4-4-4-4M3 12h18" />
                     </svg>
                   </div>
                 </div>

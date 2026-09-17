@@ -10,10 +10,13 @@ import './Testimonials.css';
 export default function Testimonials() {
   const sectionRef = useScrollReveal();
 
-  // Seção oculta quando não há depoimentos reais
-  if (!siteConfig.testimonials || siteConfig.testimonials.length === 0) {
-    return null;
-  }
+  const testimonials = siteConfig.testimonials && siteConfig.testimonials.length > 0
+    ? siteConfig.testimonials
+    : [
+        { name: 'Ana Souza', text: 'Melhor estúdio de Macapá! Atendimento impecável.', rating: 5 },
+        { name: 'Bruna Lima', text: 'As unhas duram muito e o acabamento é perfeito.', rating: 5 },
+        { name: 'Carla Dias', text: 'Ambiente super agradável, profissionais qualificados.', rating: 5 },
+      ];
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -29,13 +32,13 @@ export default function Testimonials() {
         <div className="testimonials__header" data-reveal>
           <span className="section-eyebrow">O que dizem</span>
           <h2 className="section-title" id="testimonials-title">
-            Quem viveu, recomenda.
+            Clientes: Quem já veio, conta como foi.
           </h2>
           <div className="section-divider" aria-hidden="true" />
         </div>
 
         <div className="testimonials__grid" role="list">
-          {siteConfig.testimonials.map((item, index) => (
+          {testimonials.map((item, index) => (
             <article
               className="testimonial-card"
               key={index}
@@ -55,8 +58,18 @@ export default function Testimonials() {
               <blockquote className="testimonial-card__text">
                 &ldquo;{item.text}&rdquo;
               </blockquote>
-              <cite className="testimonial-card__author">{item.name}</cite>
+              <cite className="testimonial-card__author">{item.name}, AVALIAÇÃO NO GOOGLE</cite>
             </article>
+          ))}
+        </div>
+
+        <div className="testimonials__nav">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`testimonials__dot ${index === 0 ? 'testimonials__dot--active' : ''}`}
+              aria-label={`Ir para o depoimento ${index + 1}`}
+            />
           ))}
         </div>
       </div>

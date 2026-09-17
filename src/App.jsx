@@ -11,6 +11,8 @@ import Location from './components/Location/Location';
 import FinalCTA from './components/FinalCTA/FinalCTA';
 import MobileBookingBar from './components/MobileBookingBar/MobileBookingBar';
 import Footer from './components/Footer/Footer';
+import ServicesMarquee from './components/ServicesMarquee/ServicesMarquee';
+import FloatingWhatsApp from './components/FloatingWhatsApp/FloatingWhatsApp';
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <ServicesMarquee />
         <TrustStrip />
         <Services />
         <Experience />
@@ -30,6 +33,7 @@ export default function App() {
       </main>
       <Footer />
       <MobileBookingBar />
+      <FloatingWhatsApp />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { siteConfig } from '../../config/siteConfig';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './Experience.css';
 
 export default function Experience() {
@@ -29,42 +30,27 @@ export default function Experience() {
             </div>
 
             <div className="experience__gallery" data-reveal data-reveal-delay="2">
-              {/* ✅ REAL — foto do salão */}
               <div className="experience__image-wrapper experience__image-wrapper--main">
-                <img
-                  src={siteConfig.images.salonInterior}
-                  alt="Interior do salão Raiz Beleza & Estética com estações de atendimento e espelhos arqueados"
-                  className="experience__image"
-                  width={800}
-                  height={500}
-                  style={{ aspectRatio: '16/10' }}
-                  loading="lazy"
+                <ImagePlaceholder 
+                  text="Foto do salão principal" 
+                  className="experience__image" 
+                  style={{ aspectRatio: '16/10' }} 
                 />
               </div>
 
-              {/* ✅ REAL — foto da recepção */}
               <div className="experience__image-wrapper experience__image-wrapper--secondary">
-                <img
-                  src={siteConfig.images.salonReception}
-                  alt="Recepção do salão Raiz com parede verde e letreiro dourado"
-                  className="experience__image"
-                  width={400}
-                  height={400}
-                  style={{ aspectRatio: '1/1' }}
-                  loading="lazy"
+                <ImagePlaceholder 
+                  text="Recepção do salão" 
+                  className="experience__image" 
+                  style={{ aspectRatio: '1/1' }} 
                 />
               </div>
 
-              {/* ✅ REAL — outra perspectiva do interior */}
               <div className="experience__image-wrapper experience__image-wrapper--secondary">
-                <img
-                  src={siteConfig.images.salonInterior}
-                  alt="Ambiente acolhedor do salão Raiz com cadeiras e iluminação natural"
-                  className="experience__image"
-                  width={400}
-                  height={400}
-                  style={{ aspectRatio: '1/1' }}
-                  loading="lazy"
+                <ImagePlaceholder 
+                  text="Interior do salão (outra perspectiva)" 
+                  className="experience__image" 
+                  style={{ aspectRatio: '1/1' }} 
                 />
               </div>
             </div>

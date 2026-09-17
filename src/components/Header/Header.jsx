@@ -43,7 +43,7 @@ export default function Header() {
             <a href="#" className="header__logo" aria-label="Raiz Beleza & Estética — Início">
               <img
                 src={siteConfig.brand.logo}
-                alt="Logotipo Raiz Beleza & Estética"
+                alt={`Logotipo ${siteConfig.brand.name}`}
                 className="header__logo-img"
                 width={130}
                 height={65}
@@ -63,14 +63,6 @@ export default function Header() {
             </nav>
 
             <div className="header__actions">
-              <button
-                className="header__cta btn btn--primary"
-                onClick={openBooking}
-                aria-label="Agendar horário"
-              >
-                AGENDAR HORÁRIO
-                <span className="btn__arrow" aria-hidden="true">→</span>
-              </button>
 
               <button
                 className={`header__menu-btn ${isMenuOpen ? 'header__menu-btn--open' : ''}`}

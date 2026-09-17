@@ -1,6 +1,7 @@
 import { siteConfig } from '../../config/siteConfig';
 import { getWhatsAppUrl } from '../../utils/booking';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './Location.css';
 
 export default function Location() {
@@ -33,7 +34,7 @@ export default function Location() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--primary"
-                  aria-label="Como chegar ao salão Raiz"
+                  aria-label="Como chegar ao Studio Nali"
                 >
                   Como chegar
                   <span className="btn__arrow" aria-hidden="true">→</span>
@@ -64,15 +65,10 @@ export default function Location() {
             </div>
 
             <div className="location__map-wrapper" data-reveal data-reveal-delay="2">
-              {/* ✅ REAL — foto do salão como referência visual do local */}
-              <img
-                src={siteConfig.images.salonInterior}
-                alt="Interior do salão Raiz Beleza & Estética na Jatiúca"
-                className="location__map-image"
-                width={600}
-                height={375}
-                style={{ aspectRatio: '16/10' }}
-                loading="lazy"
+              <ImagePlaceholder 
+                text="Referência visual do local" 
+                className="location__map-image" 
+                style={{ aspectRatio: '16/10' }} 
               />
               <a
                 href={address.mapsUrl}

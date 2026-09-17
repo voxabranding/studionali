@@ -1,56 +1,63 @@
 import { siteConfig } from '../../config/siteConfig';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import ImagePlaceholder from '../ImagePlaceholder/ImagePlaceholder';
 import './Results.css';
 
-/**
- * Seção de resultados / transformações.
- * Renderiza SOMENTE quando há dados reais em siteConfig.results.
- * Não exibe imagens geradas por IA como trabalhos do salão.
- */
 export default function Results() {
   const sectionRef = useScrollReveal();
 
-  // Seção oculta quando não há resultados reais
-  if (!siteConfig.results || siteConfig.results.length === 0) {
-    return null;
-  }
+  const results = siteConfig.results && siteConfig.results.length > 0 
+    ? siteConfig.results 
+    : [
+        { title: 'Mega Hair 1', category: 'MEGA HAIR' },
+        { title: 'Mega Hair 2', category: 'MEGA HAIR' },
+        { title: 'Unhas Gel 1', category: 'ALONGAMENTO' },
+        { title: 'Unhas Gel 2', category: 'ALONGAMENTO' },
+      ];
 
   return (
     <section className="results" aria-labelledby="results-title" ref={sectionRef}>
       <div className="container">
-        <div className="results__header" data-reveal>
-          <span className="section-eyebrow">Resultados</span>
-          <h2 className="section-title" id="results-title">
-            Transformações que falam por si.
-          </h2>
-          <div className="section-divider" aria-hidden="true" />
-        </div>
-
-        <div className="results__grid">
-          {siteConfig.results.map((result, index) => (
-            <article
-              className="results__card"
-              key={index}
-              data-reveal
-              data-reveal-delay={Math.min(index + 1, 3)}
+        <div className="results__container">
+          <div className="results__sidebar" data-reveal>
+            <span className="section-eyebrow">Resultados</span>
+            <h2 className="section-title" id="results-title">
+              Galeria: Transformações reais
+            </h2>
+            <p className="section-text" style={{marginBottom: '1rem'}}>
+              Acompanhe de perto as mudanças que realizamos.
+            </p>
+            <a 
+              href={siteConfig.contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--secondary"
             >
-              <img
-                src={result.image}
-                alt={result.title}
-                className="results__card-image"
-                width={400}
-                height={500}
-                style={{ aspectRatio: '4/5' }}
-                loading="lazy"
-              />
-              <div className="results__card-overlay">
-                <h3 className="results__card-title">{result.title}</h3>
-                {result.category && (
-                  <p className="results__card-category">{result.category}</p>
-                )}
-              </div>
-            </article>
-          ))}
+              Ver mais no Instagram
+            </a>
+          </div>
+
+          <div className="results__gallery" data-reveal data-reveal-delay="1">
+            {results.map((result, index) => (
+              <article className="results__card" key={index}>
+                <ImagePlaceholder 
+                  text="" 
+                  bgColor="#F1E8DC" 
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} 
+                />
+                
+                <div className="results__play-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+
+                <div className="results__card-badge">
+                  {result.category}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -3,6 +3,14 @@
    Mobile-first · Vanilla CSS · BEM
    ═══════════════════════════════════════════════════════════════ */
 
+/* ─── Fontes Locais ─────────────────────────────────────────── */
+@font-face {
+  font-family: 'Anthemia';
+  src: url('/fonts/Anthemia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ─── Custom Properties ─────────────────────────────────────── */
 :root {
   /* Paleta */
@@ -21,8 +29,8 @@
   --color-border-light: rgba(48, 37, 31, 0.08);
 
   /* Tipografia */
-  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Anthemia', 'Georgia', serif;
+  --font-sans: 'Anthemia', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Tamanhos fluidos (mobile-first) */
   --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
@@ -138,6 +146,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-brown-dark);
+}
+
+em {
+  font-style: normal;
+  color: inherit;
 }
 
 /* ─── Utilities ─────────────────────────────────────────────── */
